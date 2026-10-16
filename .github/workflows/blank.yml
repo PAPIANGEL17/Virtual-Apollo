@@ -30,4 +30,4 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: Virtual-Apollo-Windows-EXE
-        path: build/VirtualApolloCore_artefacts/Release/VirtualApolloCore.exe
+        path: build/VirtualApolloCore_artefacts/Release/Standalone/VirtualApolloCore.exe
