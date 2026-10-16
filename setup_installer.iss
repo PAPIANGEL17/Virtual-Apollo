@@ -14,9 +14,9 @@ Source: "build/VirtualApolloCore_artefacts/Release/Standalone/VirtualApolloCore.
 Source: "build/VirtualApolloCore_artefacts/Release/Standalone/VirtualApolloASIO.dll"; DestDir: "{sys}"; Flags: ignoreversion 32bit64bit regserver
 
 [Registry]
-; Registro oficial en Windows para que aparezca en el panel ASIO de cualquier DAW
+; Las llaves del CLSID se duplican ({{ y }}) para que Inno Setup no las confunda con constantes
 Root: HKLM; Subkey: "SOFTWARE\ASIO\Virtual Apollo ASIO"; Flags: uninsdeletekey
-Root: HKLM; Subkey: "SOFTWARE\ASIO\Virtual Apollo ASIO"; ValueType: string; ValueName: "CLSID"; ValueData: "{B1234567-89AB-CDEF-0123-456789ABCDEF}"
+Root: HKLM; Subkey: "SOFTWARE\ASIO\Virtual Apollo ASIO"; ValueType: string; ValueName: "CLSID"; ValueData: "{{B1234567-89AB-CDEF-0123-456789ABCDEF}}"
 Root: HKLM; Subkey: "SOFTWARE\ASIO\Virtual Apollo ASIO"; ValueType: string; ValueName: "Description"; ValueData: "Virtual Apollo Zero-Latency DSP Core"
 
 [Icons]
