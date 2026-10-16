@@ -1,8 +1,14 @@
 cmake_minimum_required(VERSION 3.22)
 project(VirtualApolloCore VERSION 2.0.0)
 
-# Descargar y enlazar JUCE automáticamente para compilar el motor de audio
-find_package(JUCE CONFIG REQUIRED)
+# --- INCLUIR JUCE AUTOMÁTICAMENTE DESDE GITHUB ---
+include(FetchContent)
+FetchContent_Declare(
+    JUCE
+    GIT_REPOSITORY https://github.com/juce-framework/JUCE.git
+    GIT_TAG        master
+)
+FetchContent_MakeAvailable(JUCE)
 
 juce_add_gui_app(VirtualApolloCore
     PRODUCT_NAME "Virtual Apollo Core"
