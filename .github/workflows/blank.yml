@@ -28,8 +28,10 @@ jobs:
 
     - name: Download and Install Inno Setup
       run: |
-        powershell -Command "Invoke-WebRequest -Uri 'https://jrsoftware.org/download.php/is.exe' -OutFile 'mysetup.exe'"
-        Start-Process -FilePath "mysetup.exe" -ArgumentList "/VERYSILENT /SUPPRESSMSGBOXES /NORESTART" -Wait
+        $url = "https://github.com/jrsoftware/issrc/releases/download/is-6_2_2/innosetup-6.2.2.exe"
+        $output = "mysetup.exe"
+        Invoke-WebRequest -Uri $url -OutFile $output
+        Start-Process -FilePath "$output" -ArgumentList "/VERYSILENT /SUPPRESSMSGBOXES /NORESTART" -Wait
 
     - name: Compile Professional Installer (.exe)
       run: |
