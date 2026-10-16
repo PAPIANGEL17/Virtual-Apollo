@@ -14,17 +14,17 @@ jobs:
       with:
         submodules: recursive
 
-    - name: Setup MSBuild / Visual Studio
-      uses: microsoft/setup-msbuild@v2
-
-    - name: Setup CMake & Ninja
+    - name: Setup Ninja & CMake
       uses: lukka/get-cmake@latest
 
-    - name: Configure CMake (MSVC)
-      run: cmake -B build -G "Visual Studio 17 2022" -A x64 -DJUCE_USE_DIRECT2D=0
+    - name: Set up MSVC Environment
+      uses: ilammy/msvc-dev-cmd@v1
+
+    - name: Configure CMake
+      run: cmake -B build -G "Ninja" -DCMAKE_BUILD_TYPE=Release -DJUCE_USE_DIRECT2D=0
 
     - name: Build Application
-      run: cmake --build build --config Release
+      run: cmake --build build
 
     - name: Upload Executable Artifact
       uses: actions/upload-artifact@v4
